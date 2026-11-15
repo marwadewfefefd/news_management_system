@@ -1,12 +1,16 @@
 <?php
-    session_start();
-    // echo $_SESSION['user'];
-    include('include/header.php');
-    include('include/connection.php');
-    if(isset($_SESSION['user_data'])!=true){
-    header('location:login.php');
+session_start();
+
+// 1. Check login FIRST before printing any HTML!
+if (!isset($_SESSION['user_data']) || $_SESSION['user_data'] !== true) {
+    header('Location: login.php');
+    exit(); // STOPS execution so unauthenticated users cannot see the rest of the page
 }
-    ?>
+
+// 2. Include database and header ONLY AFTER passing the login check
+include('include/connection.php');
+include('include/header.php');
+?>
 
 
     <div class="container">
