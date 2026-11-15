@@ -1,5 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
     include('include/header.php');
     include('include/connection.php');
     if(isset($_SESSION['user_data'])!=true){
