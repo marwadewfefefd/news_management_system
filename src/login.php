@@ -1,4 +1,4 @@
-    <?php 
+<?php 
     session_start();
     include("include/connection.php");
     if(!$connection->connect_error){
@@ -15,8 +15,8 @@
                     $data=$result->fetch_assoc();
                     if(password_verify($userPassword,$data['Password'])){
                         $_SESSION['user_data']=$data;
-                        echo "<div class='alert alert-success text-center'>مرحبا".$_SESSION['user_data']['Name']. "  سيتم تحويلك الى لوحة التحكم  "."</div>";
-                        header('REFRESH:5;URL=dashboard.php');
+                        header('Location: dashboard.php');
+                        exit();
                     }else{
                         echo "<div class='alert alert-danger text-center'>خطأ بكلمة المرور</div>";
                     }
