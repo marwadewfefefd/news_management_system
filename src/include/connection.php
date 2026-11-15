@@ -1,5 +1,5 @@
 <?php
-$connection=new mysqli("localhost","root","","news");
+$connection=new mysqli("db","root","rootpassword","news");
 function validate_data($data){
     $data=trim($data);
     $data=htmlspecialchars($data);
