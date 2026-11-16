@@ -12,9 +12,11 @@
             $sql="INSERT INTO `users`(`Name`, `Email`, `Password`) values ('$userName','$userEmail','$userPassword')";
             $result=$connection->query($sql);
                 if($result){
-                    echo"<div class='alert alert-success text-center'>تم إنشاء الحساب بنجاح سيتم تحويلك لصفحة تسجيل الدخول</div>";
-                    header('REFRESH:5;URL=login.php');
-                    // header('location:login.php');
+                    //echo"<div class='alert alert-success text-center'>تم إنشاء الحساب بنجاح سيتم تحويلك لصفحة تسجيل الدخول</div>";
+                    //line15 made the error Warning: Cannot modify header information - headers already sent by (output started at /var/www/html/signup.php:15) in /var/www/html/signup.php on line 16
+                    
+                    header('location:login.php');
+                    exit();
                 }
             }
         }
