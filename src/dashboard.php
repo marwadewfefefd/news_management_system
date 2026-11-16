@@ -1,8 +1,6 @@
 <?php
 session_start();
-
-// 1. Check login FIRST before printing any HTML!
-if (!isset($_SESSION['user_data']) || $_SESSION['user_data'] !== true) {
+if (!isset($_SESSION['user_data'])) {
     header('Location: login.php');
     exit(); // STOPS execution so unauthenticated users cannot see the rest of the page
 }
