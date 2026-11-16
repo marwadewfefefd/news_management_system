@@ -1,4 +1,4 @@
-    <?php 
+<?php 
     session_start();
     include("include/connection.php");
     if(!$connection->connect_error){
